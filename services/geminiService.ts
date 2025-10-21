@@ -172,3 +172,24 @@ ${emailBody}
         return "Sorry, there was an error analyzing the email for spam triggers.";
     }
 };
+
+export const summarizeThread = async (thread: string): Promise<string> => {
+    const prompt = `
+Summarize the following email thread into a concise paragraph. Capture the main points, action items, and the overall sentiment of the conversation.
+
+Email Thread:
+---
+${thread}
+---
+`;
+    try {
+        const response = await ai.models.generateContent({
+            model: modelName,
+            contents: prompt,
+        });
+        return response.text;
+    } catch (error) {
+        console.error("Error summarizing thread:", error);
+        return "Sorry, there was an error summarizing the email thread.";
+    }
+};

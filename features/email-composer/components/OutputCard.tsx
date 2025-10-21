@@ -1,6 +1,6 @@
 import React, { useState, useCallback } from 'react';
-import LoadingSpinner from './LoadingSpinner';
-import { CopyIcon, CheckIcon } from './icons';
+import LoadingSpinner from '../../../components/shared/LoadingSpinner';
+import { CopyIcon, CheckIcon } from '../../../components/shared/icons';
 
 interface OutputCardProps {
   title: string;
